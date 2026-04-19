@@ -1,7 +1,7 @@
 <template>
   <nav class="bg-white dark:bg-gray-900 shadow-md px-6 py-4 flex items-center justify-between transition-colors duration-300">
     <!-- Logo -->
-    <div class="text-2xl font-bold text-purple-600">
+    <div class="text-2xl font-bold text-purple-700 tracking-wide">
       Trendify 👗
     </div>
 
@@ -14,13 +14,9 @@
 
     <!-- Right Side -->
     <div class="flex items-center gap-4">
-      <!-- Dark Mode Toggle -->
-      <button @click="toggleDark"
-        class="text-2xl hover:scale-110 transition-transform">
+      <button @click="toggleDark" class="text-2xl hover:scale-110 transition-transform">
         {{ isDark ? '☀️' : '🌙' }}
       </button>
-
-      <!-- Cart Icon -->
       <button @click="$emit('openCart')"
         class="relative text-gray-600 dark:text-gray-300 hover:text-purple-600 transition text-2xl">
         🛒

@@ -5,7 +5,12 @@
   :src="product.thumbnail"
   :alt="product.title"
   class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300"
-  @error="(e) => (e.target as HTMLImageElement).src = 'https://placehold.co/400x300?text=No+Image'"
+  @error="(e) => {
+    const target = e.target as HTMLImageElement;
+    target.src = '';
+    target.style.display = 'none';
+    target.parentElement!.innerHTML += '<div class=\'w-full h-56 bg-gray-100 flex items-center justify-center\'><span class=\'text-gray-400 text-lg\'>📷 No Image</span></div>';
+  }"
 />
     <!-- Product Info -->
     <div class="p-4">
