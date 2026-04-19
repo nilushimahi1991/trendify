@@ -3,7 +3,7 @@
     <NavBar @openCart="cartOpen = true" />
 
     <main class="max-w-7xl mx-auto px-4 py-8">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6">New Arrivals 🔥</h2>
+      <h2 class="text-3xl font-bold text-red-500 mb-6">New Arrivals 🔥</h2>
 
       <FilterBar
         :categories="categories"
