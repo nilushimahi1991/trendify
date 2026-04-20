@@ -1,6 +1,10 @@
 <template>
   <div class="min-h-screen bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-    <NavBar @openCart="cartOpen = true" />
+    <NavBar
+      :user="currentUser"
+      @openCart="cartOpen = true"
+      @openLogin="loginOpen = true"
+    />
 
     <main class="max-w-7xl mx-auto px-4 py-8">
       <h2 class="text-3xl font-bold text-red-500 mb-6">New Arrivals 🔥</h2>
@@ -42,6 +46,13 @@
       v-if="cartOpen"
       @close="cartOpen = false"
     />
+
+    <!-- Login Modal -->
+    <LoginModal
+      v-if="loginOpen"
+      @close="loginOpen = false"
+      @loggedIn="onLoggedIn"
+    />
   </div>
 </template>
 
@@ -52,6 +63,7 @@ import ProductCard from './components/ProductCard.vue'
 import FilterBar from './components/FilterBar.vue'
 import ProductModal from './components/ProductModal.vue'
 import CartSidebar from './components/CartSidebar.vue'
+import LoginModal from './components/LoginModal.vue'
 import { useCartStore } from './stores/cartStore'
 
 interface Product {
@@ -72,6 +84,11 @@ const searchQuery = ref('')
 const selectedCategory = ref('')
 const selectedProduct = ref<Product | null>(null)
 const cartOpen = ref(false)
+const loginOpen = ref(false)
+const storedUser = localStorage.getItem('user')
+const currentUser = ref<string | null>(
+  storedUser && !storedUser.startsWith('{') ? storedUser : null
+)
 
 const categories = computed(() => {
   const cats = products.value.map(p => p.category)
@@ -90,8 +107,13 @@ const onSearch = (query: string) => searchQuery.value = query
 const onFilter = (category: string) => selectedCategory.value = category
 const openModal = (product: Product) => selectedProduct.value = product
 
+const onLoggedIn = (name: string, token: string) => {
+  currentUser.value = name
+  loginOpen.value = false
+}
+
 onMounted(async () => {
-  const res = await fetch('https://dummyjson.com/products?limit=100')
+  const res = await fetch('https://dummyjson.com/products?limit=150')
   const data = await res.json()
   products.value = data.products
   loading.value = false

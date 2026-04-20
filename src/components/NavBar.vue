@@ -14,9 +14,25 @@
 
     <!-- Right Side -->
     <div class="flex items-center gap-4">
+      <!-- Dark Mode -->
       <button @click="toggleDark" class="text-2xl hover:scale-110 transition-transform">
         {{ isDark ? '☀️' : '🌙' }}
       </button>
+
+      <!-- Login/Logout -->
+      <div v-if="user">
+        <span class="text-gray-600 dark:text-gray-300 text-sm font-medium mr-2">👋 {{ user }}</span>
+        <button @click="logout"
+          class="bg-red-100 text-red-500 px-3 py-1 rounded-lg text-sm hover:bg-red-200 transition">
+          Logout
+        </button>
+      </div>
+      <button v-else @click="$emit('openLogin')"
+        class="bg-purple-600 text-white px-4 py-2 rounded-xl hover:bg-purple-700 transition text-sm font-medium">
+        Login 🔐
+      </button>
+
+      <!-- Cart -->
       <button @click="$emit('openCart')"
         class="relative text-gray-600 dark:text-gray-300 hover:text-purple-600 transition text-2xl">
         🛒
@@ -34,7 +50,12 @@ import { ref } from 'vue'
 import { useCartStore } from '../stores/cartStore'
 
 const cart = useCartStore()
-defineEmits<{ openCart: [] }>()
+
+defineProps<{ user: string | null }>()
+defineEmits<{
+  openCart: []
+  openLogin: []
+}>()
 
 const isDark = ref(false)
 
@@ -45,5 +66,11 @@ const toggleDark = () => {
   } else {
     document.documentElement.classList.remove('dark')
   }
+}
+
+const logout = () => {
+  localStorage.removeItem('token')
+  localStorage.removeItem('user')
+  location.reload()
 }
 </script>
