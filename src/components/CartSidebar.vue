@@ -9,8 +9,12 @@
       <!-- Header -->
       <div class="flex items-center justify-between p-6 border-b">
         <h2 class="text-2xl font-bold text-gray-800">Your Cart 🛒</h2>
-        <button @click="$emit('close')"
-          class="text-gray-400 hover:text-gray-600 text-2xl font-bold">✕</button>
+        <div class="flex items-center gap-2 mt-1">
+  <button @click="cart.removeFromCart(item.id)"
+    class="text-red-400 hover:text-red-600 text-sm px-2 py-1 border border-red-300 rounded-lg">
+    Remove 🗑️
+  </button>
+</div>
       </div>
 
       <!-- Empty Cart -->
