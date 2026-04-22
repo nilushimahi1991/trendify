@@ -7,10 +7,10 @@
 
     <!-- Nav Links -->
     <div class="hidden md:flex gap-6 text-gray-600 dark:text-gray-300 font-medium">
-      <a href="#" class="hover:text-purple-600 transition">Home</a>
-      <a href="#" class="hover:text-purple-600 transition">Shop</a>
-      <a href="#" class="hover:text-purple-600 transition">About</a>
-    </div>
+  <a href="#top" class="hover:text-purple-600 transition">Home</a>
+  <a href="#products" class="hover:text-purple-600 transition">Shop</a>
+  <a href="#about" class="hover:text-purple-600 transition">About</a>
+</div>
 
     <!-- Right Side -->
     <div class="flex items-center gap-4">

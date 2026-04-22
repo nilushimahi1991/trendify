@@ -6,9 +6,8 @@
       @openLogin="loginOpen = true"
     />
 
-    <main class="max-w-7xl mx-auto px-4 py-8">
-      <h2 class="text-3xl font-bold text-red-500 mb-6">New Arrivals 🔥</h2>
-
+    <main id="top" class="max-w-7xl mx-auto px-4 py-8">
+      <h2 id="products" class="text-3xl font-bold text-red-500 mb-6">New Arrivals 🔥</h2>
       <FilterBar
         :categories="categories"
         @search="onSearch"
@@ -53,6 +52,7 @@
       @close="loginOpen = false"
       @loggedIn="onLoggedIn"
     />
+    <Footer />
   </div>
 </template>
 
@@ -65,6 +65,7 @@ import ProductModal from './components/ProductModal.vue'
 import CartSidebar from './components/CartSidebar.vue'
 import LoginModal from './components/LoginModal.vue'
 import { useCartStore } from './stores/cartStore'
+import Footer from './components/Footer.vue'
 
 interface Product {
   id: number
