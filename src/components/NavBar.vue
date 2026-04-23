@@ -1,9 +1,12 @@
 <template>
   <nav class="bg-white dark:bg-gray-900 shadow-md px-6 py-4 flex items-center justify-between transition-colors duration-300">
     <!-- Logo -->
-    <div class="text-2xl font-bold text-purple-700 tracking-wide">
-      Trendify 👗
-    </div>
+    <div class="flex items-center gap-2">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-purple-700" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/>
+  </svg>
+  <span class="text-2xl font-bold text-purple-700 tracking-wide">Trendify</span>
+</div>
 
     <!-- Nav Links -->
     <div class="hidden md:flex gap-6 text-gray-600 dark:text-gray-300 font-medium">
@@ -21,7 +24,7 @@
 
       <!-- Login/Logout -->
       <div v-if="user">
-        <span class="text-gray-600 dark:text-gray-300 text-sm font-medium mr-2">👋 {{ user }}</span>
+        <span class="text-gray-600 dark:text-gray-300 text-sm font-medium mr-2">{{ user }}</span>
         <button @click="logout"
           class="bg-red-100 text-red-500 px-3 py-1 rounded-lg text-sm hover:bg-red-200 transition">
           Logout

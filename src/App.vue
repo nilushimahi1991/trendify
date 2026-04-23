@@ -7,7 +7,22 @@
     />
 
     <main id="top" class="max-w-7xl mx-auto px-4 py-8">
-      <h2 id="products" class="text-3xl font-bold text-red-500 mb-6">New Arrivals 🔥</h2>
+      <!-- Hero Banner -->
+<div class="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden mb-10">
+  <img
+   src="https://images.unsplash.com/photo-1557821552-17105176677c?w=1400&auto=format&fit=crop&q=80"
+    alt="Trendify Banner"
+    class="w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-white text-center px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Trendify</h1>
+    <p class="text-lg md:text-2xl mb-6">Discover the Latest Fashion Trends 👗</p>
+    <a href="#products"
+      class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-semibold text-lg transition">
+      Shop Now 🛍️
+    </a>
+  </div>
+</div>
       <FilterBar
         :categories="categories"
         @search="onSearch"

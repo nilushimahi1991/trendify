@@ -88,9 +88,9 @@ const login = async () => {
     const data = await res.json()
 
     if (data.accessToken) {
-      localStorage.setItem('token', data.accessToken)
-      localStorage.setItem('user', data.firstName + ' ' + data.lastName)
-      emit('loggedIn', data.firstName + ' ' + data.lastName, data.accessToken)
+  localStorage.setItem('token', data.accessToken)
+  localStorage.setItem('user', 'Mahi Yapa')
+  emit('loggedIn', 'Mahi Yapa', data.accessToken)
     } else {
       error.value = 'Invalid username or password!'
     }
