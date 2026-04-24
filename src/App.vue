@@ -10,7 +10,7 @@
       <!-- Hero Banner -->
 <div class="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden mb-10">
   <img
-   src="https://images.unsplash.com/photo-1557821552-17105176677c?w=1400&auto=format&fit=crop&q=80"
+   src="/banner.jpg"
     alt="Trendify Banner"
     class="w-full h-full object-cover"
   />
