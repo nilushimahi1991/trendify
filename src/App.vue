@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+<div class="min-h-screen bg-purple-200 dark:bg-gray-800 transition-colors duration-300">
     <NavBar
       :user="currentUser"
       @openCart="cartOpen = true"
@@ -16,13 +16,15 @@
   />
   <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-white text-center px-4">
     <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to Trendify</h1>
-    <p class="text-lg md:text-2xl mb-6">Discover the Latest Fashion Trends 👗</p>
-    <a href="#products"
-      class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-semibold text-lg transition">
-      Shop Now 🛍️
-    </a>
+    <p class="text-lg md:text-2xl mb-6">Trendy Picks Just for You</p>
+ <button
+  @click="scrollToProducts"
+  class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-semibold text-lg transition cursor-pointer">
+  Shop Now 🛍️
+</button>
   </div>
 </div>
+<div id="products"></div>
       <FilterBar
         :categories="categories"
         @search="onSearch"
@@ -81,6 +83,12 @@ import CartSidebar from './components/CartSidebar.vue'
 import LoginModal from './components/LoginModal.vue'
 import { useCartStore } from './stores/cartStore'
 import Footer from './components/Footer.vue'
+const scrollToProducts = () => {
+  const el = document.getElementById('products')
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 
 interface Product {
   id: number
