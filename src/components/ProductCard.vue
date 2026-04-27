@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer overflow-hidden">
+  <div class="bg-gray-400 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer overflow-hidden">
     <!-- Product Image -->
    <img
   :src="product.thumbnail"

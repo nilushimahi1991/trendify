@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-purple-200 dark:bg-gray-800 transition-colors duration-300">
+  <div class="min-h-screen bg-purple-300 dark:bg-gray-800 transition-colors duration-300">
     <NavBar
       :user="currentUser"
       @openCart="cartOpen = true"
