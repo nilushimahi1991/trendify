@@ -1,5 +1,6 @@
 <template>
-  <div class="min-h-screen bg-purple-300 dark:bg-gray-800 transition-colors duration-300">
+  <div class="min-h-screen bg-purple-300
+   dark:bg-gray-800 transition-colors duration-300">
     <NavBar
       :user="currentUser"
       @openCart="cartOpen = true"
@@ -125,9 +126,13 @@ const onLoggedIn = (name: string, token: string) => {
 }
 
 onMounted(async () => {
-  const res = await fetch('https://dummyjson.com/products?limit=150')
-  const data = await res.json()
-  products.value = data.products
+  const categories = ['beauty', 'fragrances', 'home-decoration', 'mens-watches', 'skin-care']
+  const results = await Promise.all(
+    categories.map(cat => 
+      fetch(`https://dummyjson.com/products/category/${cat}?limit=5`).then(r => r.json())
+    )
+  )
+  products.value = results.flatMap(r => r.products)
   loading.value = false
 })
 </script>
